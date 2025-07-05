@@ -1,0 +1,61 @@
+.container{
+    width: 100%;
+    height: fit-content;
+    padding: 0 20px 20px 20px;
+    
+}
+.login-form{
+    width: 100%;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    border-radius: 5px;
+}
+.login-form form{
+    width: 450px;
+}
+.login-form .form-group{
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.login-form input{
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #ff6b2c;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.login-form input:focus{
+    border: 1px solid #2e2e2e;;
+}
+.passwordReveal{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    transform: translateY(50%);
+}
+.login-form button{
+    width: 100%;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #ff6b2c;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: .5s ease;
+}
+.login-form button:hover{
+    background-color: #E75A1F;
+}
+.login-form h1{
+    text-align: center;
+}
+.error{
+    font-size: .7rem;
+    color: red;
+}

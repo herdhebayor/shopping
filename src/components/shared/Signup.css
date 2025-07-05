@@ -1,0 +1,60 @@
+.container{
+    width: 100%;
+    height: fit-content;
+    padding: 0 20px 20px 20px;
+    
+}
+.signup-form{
+    width: 100%;
+    min-height: 400px;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 0;
+    border-radius: 5px;
+}
+.signup-form form{
+    width: 450px;
+}
+.signup-form .form-group{
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+.signup-form input{
+    height: 50px;
+    width: 100%;
+    padding: 10px;
+    background-color: transparent;
+    outline: none;
+    border: 1px solid #ff6b2c;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+.signup-form input:invalid{
+    border:1px solid red;
+}
+.signup-form input:focus{
+    border: 1px solid #2e2e2e;;
+}
+.passwordReveal{
+    position: absolute;
+    right: 20px;
+    top: 0;
+    transform: translateY(50%);
+}
+.signup-form button{
+    width: 100%;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #ff6b2c;
+    color: #fff;
+    font-size: 1rem;
+    margin-bottom: 10px;
+    transition: .5s ease;
+}
+.signup-form button:hover{
+    background-color: #E75A1F;
+}
