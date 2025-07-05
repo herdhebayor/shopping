@@ -3,7 +3,6 @@
 import React from 'react'
 import { FaCartArrowDown,FaSearch  } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
-import { useState } from 'react'
 import Icon from "../assets/logo-2.png"
 import { useContext } from 'react'
 import ProductContext from './context/Context'

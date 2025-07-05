@@ -25,12 +25,12 @@ function Signup() {
 		const handleSubmit = (e) => {
 		  e.preventDefault();
 		  if (!form.password || !form.confirmPassword) {
-			showPasswordErr(true)
+			setShowPasswordErr(true)
 			return;
 		  }
 		
 		  if (form.password !== form.confirmPassword) {
-			showPasswordErr(true)
+			setShowPasswordErr(true)
 			return;
 		  }
 		  signup(form); // Save to context and optionally localStorage
@@ -134,7 +134,7 @@ function Signup() {
 							<input
 								type={showPassword ? 'text' : 'password'}
 								id='confirmPassword'
-								name='confimPassword'
+								name='confirmPassword'
 								placeholder='Confirm password'
 								required
 							/>
