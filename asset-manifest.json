@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/herdhebayor/shopping.git/static/css/main.26797d72.css",
-    "main.js": "/herdhebayor/shopping.git/static/js/main.a10f9dd6.js",
-    "static/js/453.9b9e45a1.chunk.js": "/herdhebayor/shopping.git/static/js/453.9b9e45a1.chunk.js",
-    "static/media/logo-2.png": "/herdhebayor/shopping.git/static/media/logo-2.d115696ecd4dd924ebd1.png",
-    "static/media/Loading_icon.gif": "/herdhebayor/shopping.git/static/media/Loading_icon.1a32f552ee5280e2aef9.gif",
-    "index.html": "/herdhebayor/shopping.git/index.html",
-    "main.26797d72.css.map": "/herdhebayor/shopping.git/static/css/main.26797d72.css.map",
-    "main.a10f9dd6.js.map": "/herdhebayor/shopping.git/static/js/main.a10f9dd6.js.map",
-    "453.9b9e45a1.chunk.js.map": "/herdhebayor/shopping.git/static/js/453.9b9e45a1.chunk.js.map"
+    "main.css": "/shopping-app/static/css/main.26797d72.css",
+    "main.js": "/shopping-app/static/js/main.465a6403.js",
+    "static/js/453.9b9e45a1.chunk.js": "/shopping-app/static/js/453.9b9e45a1.chunk.js",
+    "static/media/logo-2.png": "/shopping-app/static/media/logo-2.d115696ecd4dd924ebd1.png",
+    "static/media/Loading_icon.gif": "/shopping-app/static/media/Loading_icon.1a32f552ee5280e2aef9.gif",
+    "index.html": "/shopping-app/index.html",
+    "main.26797d72.css.map": "/shopping-app/static/css/main.26797d72.css.map",
+    "main.465a6403.js.map": "/shopping-app/static/js/main.465a6403.js.map",
+    "453.9b9e45a1.chunk.js.map": "/shopping-app/static/js/453.9b9e45a1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.26797d72.css",
-    "static/js/main.a10f9dd6.js"
+    "static/js/main.465a6403.js"
   ]
 }
