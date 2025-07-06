@@ -105,7 +105,7 @@ export const ContextProvider = ({ children }) => {
 	const showCheckout = () => {
 		if (!isLoggedIn) {
 			alert('Please log in to proceed with checkout.')
-			 window.location.href = '/log-in' // Redirect to login page
+			window.location.href = '/log-in' // Redirect to login page
 			return
 		}
 		setCheckedOut(true)
@@ -123,33 +123,32 @@ export const ContextProvider = ({ children }) => {
 		}, 0)
 		.toFixed(2)
 
-	//   const searchProducts = (searchTerm) => {
-	// 	if (!searchTerm) {
-	// 	  fetchProducts()
-	// 	  return
-	// 	}
-	// 	const filteredProducts = products.filter((product) =>
-	// 	  product.title.toLowerCase().includes(searchTerm.toLowerCase())
-	// 	)
-	// 	setProducts(filteredProducts)
-	// 	if (filteredProducts.length === 0) {
-	// 	  alert('No products found')
-	// 	  fetchProducts()
-	// 	}
-	//   }
-	//   const handleSearch = (e) => {
-	// 	const searchTerm = e.target.value
-	// 	searchProducts(searchTerm)
-	//   }
-	//   const handleSearchSubmit = (e) => {
-	// 	e.preventDefault()
-	// 	const searchTerm = e.target.search.value
-	// 	searchProducts(searchTerm)
-	// 	e.target.search.value = ''
-	//   }
+	const searchProducts = (searchTerm) => {
+		if (!searchTerm) {
+			fetchProducts()
+			return
+		}
+		const filteredProducts = products.filter((product) =>
+			product.title.toLowerCase().includes(searchTerm.toLowerCase())
+		)
+		if (filteredProducts.length === 0) {
+			alert('No products found')
+			fetchProducts()
+		}
+		setProducts(filteredProducts)
+	}
+	const handleSearch = (e) => {
+		const searchTerm = e.target.value
+		searchProducts(searchTerm)
+	}
+	const handleSearchSubmit = (e) => {
+		e.preventDefault()
+		const searchTerm = e.target.search.value // e.target = form, search = input name
+		searchProducts(searchTerm)
+		e.target.search.value = '' // clear input
+	}
 
 	const subscribeToNewsletter = () => {
-		
 		alert(`Thank you for subscribing to our newsletter!`)
 	}
 	return (
@@ -180,6 +179,8 @@ export const ContextProvider = ({ children }) => {
 				checkout,
 				showCheckout,
 				subscribeToNewsletter,
+				handleSearchSubmit,
+				handleSearch,
 			}}
 		>
 			{children}

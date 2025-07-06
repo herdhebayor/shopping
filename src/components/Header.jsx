@@ -8,7 +8,7 @@ import { useContext } from 'react'
 import ProductContext from './context/Context'
 
 function Header() {
-	const { cart,isLoggedIn,logout,user } = useContext(ProductContext)
+	const { cart,isLoggedIn,logout,user,handleSearchSubmit, handleSearch} = useContext(ProductContext)
 	return (
 		<>
 			<div className='navbar'>
@@ -18,9 +18,9 @@ function Header() {
 					</Link>
 				</div>
 
-				<form className='nav-input-group'>
-					<input type='search' placeholder='Search' />
-					<button type='submit'>
+				<form className='nav-input-group' onSubmit={handleSearchSubmit}>
+					<input type='text' name="search" id='search' placeholder='Search products' onInput={handleSearch} />
+					<button type='submit' onClick={handleSearchSubmit} className='search-btn'>
 						<FaSearch color='#ff6b2c' />
 					</button>
 				</form>
