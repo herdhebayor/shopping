@@ -1,7 +1,7 @@
 /** @format */
 
 import React from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { HashRouter as Router, Route, Routes } from 'react-router-dom'
 
 import Header from './components/Header'
 import Products from './components/Products'
@@ -17,7 +17,7 @@ import ScrollToTop from './components/shared/ScrollTop'
 function App() {
 	return (
 		<ContextProvider>
-			<Router basename="/">
+			<Router basename="/shopping-app">
 				<ScrollToTop />
 				{/* ScrollToTop component to reset scroll position on route change */}
 				{/* This component will scroll to the top of the page whenever the route changes */}
