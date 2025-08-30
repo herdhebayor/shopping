@@ -1,5 +1,5 @@
 .card{
-    width: 200px;
+    width:min-max(200px, 100%) ;
     padding: 10px;
 	border-radius: 10px;
     height:fit-content;

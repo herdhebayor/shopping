@@ -17,14 +17,14 @@
     border-radius: 5px;
 }
 .signup-form form{
-    width: 450px;
+    width:min-max(450px, 100%) ;
 }
 .signup-form .form-group{
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     line-height: 1.5;
 }
 .signup-form input{
-    height: 50px;
+    height: 40px;
     width: 100%;
     padding: 10px;
     background-color: transparent;
@@ -47,7 +47,7 @@
 }
 .signup-form button{
     width: 100%;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
     background-color: #ff6b2c;
     color: #fff;
@@ -57,4 +57,9 @@
 }
 .signup-form button:hover{
     background-color: #E75A1F;
+}
+@media screen  and (max-width:760px) {
+    .signup-form{
+        padding: 50px 10px;
+    }
 }

@@ -12,7 +12,7 @@ function Header() {
 	return (
 		<>
 			<div className='navbar'>
-				<div className='App-logo' style={{ width: '80px' }}>
+				<div className='App-logo'>
 					<Link to='/'>
 						<img src={Icon} alt='logo' style={{ width: '100%' }} />
 					</Link>
@@ -28,7 +28,7 @@ function Header() {
 					<Link to='/cart' className='cart-icon'>
 						<div className='cart'>
 							<span className='cart-icon'>
-								<FaCartArrowDown color='#ff6b2c' size='30' />
+								<FaCartArrowDown color='#ff6b2c'  />
 							</span>
 							<span className='cart-count'>{cart.length}</span>
 						</div>

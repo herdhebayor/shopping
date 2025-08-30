@@ -10,7 +10,7 @@ import ProductContext from '../context/Context'
 
 function LogIng() {
 	const navigate =useNavigate()
-	const { login, setIsLoggedIn } = useContext(ProductContext);
+	const { login,isLoggedIn, setIsLoggedIn } = useContext(ProductContext);
 	const [showPassword, setShowPassword] = useState(false)
 	const [form, setForm] = useState({ email: '', password: '' });
 	const [error, setError] = useState(false);
@@ -31,10 +31,8 @@ function LogIng() {
   
 	  const result = login(form);
 	  if (result.success) {
-		alert('Login successful!');
 		setIsLoggedIn(true)
 		navigate('/')
-		// optionally navigate to another page using useNavigate from react-router-dom
 	  } else {
 		setError(true);
 	  }
@@ -88,6 +86,12 @@ function LogIng() {
 				</form>
 			</div>
 			<BackBtn />
+			{
+				isLoggedIn && (
+					<div className='notification'>Login successful!</div>
+				)
+			}
+
 		</div>
 	)
 }

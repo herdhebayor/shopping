@@ -4,16 +4,18 @@ import React from 'react'
 import './Signup.css' // Assuming you have a CSS file for styling
 import { Link } from 'react-router-dom'
 import { useState, useContext } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa'
 import BackBtn from './BackBtn'
 import ProductContext from '../context/Context'
 
 function Signup() {
-	const { signup, signedUp, setSignedUp} = useContext(ProductContext)
+	const { signup,signedUp,setSignedUp} = useContext(ProductContext)
 	const [showPassword, setShowPassword] = useState(false)
 	const [showPasswordErr, setShowPasswordErr] = useState(false)
 	
-	const [form, setForm] = useState({ username: '', email: '', password: '', address:'', gender:'', phone:'' });
+	const navigate = useNavigate();
+	const [form, setForm] = useState({ username: '', email: '', password: '', address:'', gender:'', phone:'',confirmPassword:'' });
 	const togglePasswordVisibility = () => {
 		setShowPassword((prev) => !prev)
 	}
@@ -34,18 +36,13 @@ function Signup() {
 			return;
 		  }
 		  signup(form); // Save to context and optionally localStorage
-		  setSignedUp(true)
-		  alert('Sign up succesfull!')
+		  setShowPasswordErr(false)
+		  navigate('/')
 		};
 	return (
 		<div>
-			<div className='signup-form'>{
-				signedUp ? (
-					<>
-					<p>You have successfully signed up got to <Link to='/log-in'>Login page</Link> to continue</p>
-					</>
-				):(<>
-				<h2 style={{ marginBottom: '4rem' }}>Sign-Up</h2>
+			<div className='signup-form'>
+				<h2>Sign-Up</h2>
 				<form onSubmit={handleSubmit}>
 					<div className='form-group'>
 						<label htmlFor='username'>Name</label>
@@ -136,11 +133,14 @@ function Signup() {
 								id='confirmPassword'
 								name='confirmPassword'
 								placeholder='Confirm password'
+								onChange={handleChange}
 								required
 							/>
-							{
-								showPasswordErr && <span style={{color:'red', fontSize:'.8rem'}}>Password do not match</span>
-							}
+							{showPasswordErr && (
+								<span style={{ color: 'red', fontSize: '.8rem' }}>
+									Password do not match
+								</span>
+							)}
 							<div
 								className='passwordReveal'
 								onClick={togglePasswordVisibility}
@@ -156,10 +156,11 @@ function Signup() {
 						Already have an account? <Link to='/log-in'>Login</Link>
 					</p>
 				</form>
-				</>)
-				}
 			</div>
-			<BackBtn/>
+			<BackBtn />
+			{signedUp && (
+				<div className='notification'>Product added to cart successfully!</div>
+			)}
 		</div>
 	)
 }

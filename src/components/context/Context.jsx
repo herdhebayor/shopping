@@ -3,6 +3,7 @@
 import React from 'react'
 import { createContext, useState, useEffect } from 'react'
 
+
 const ProductContext = createContext()
 
 export const ContextProvider = ({ children }) => {
@@ -15,13 +16,19 @@ export const ContextProvider = ({ children }) => {
 	const [signedUp, setSignedUp] = useState(false)
 	const [checkedOut, setCheckedOut] = useState(false)
 
+
 	useEffect(() => {
 		fetchProducts()
 	}, [])
 	useEffect(() => {
 		const storedUser = localStorage.getItem('user')
+		const storedIsLoggedIn = localStorage.getItem('isLoggedIn')
+		
 		if (storedUser) {
 			setUser(JSON.parse(storedUser))
+		}
+		if (storedIsLoggedIn === 'true') {
+			setIsLoggedIn(true)
 		}
 	}, [])
 
@@ -40,7 +47,12 @@ export const ContextProvider = ({ children }) => {
 	const signup = (userData) => {
 		setUser(userData) // Save to state
 		localStorage.setItem('user', JSON.stringify(userData))
-		// Optional: persist
+		localStorage.setItem('isLoggedIn', 'true')
+		setSignedUp(true)
+		setIsLoggedIn(true)
+		setTimeout(() => {
+			setSignedUp(false)
+		}, 2000)
 	}
 
 	// Login with existing user credentials
@@ -53,7 +65,9 @@ export const ContextProvider = ({ children }) => {
 			storedUser.password === password
 		) {
 			setUser(storedUser)
-			return { success: true }
+			setIsLoggedIn(true)
+			localStorage.setItem('isLoggedIn', 'true')
+			return { success: true, message: 'Login successful' }
 		} else {
 			return { success: false, message: 'Invalid credentials' }
 		}
@@ -62,7 +76,7 @@ export const ContextProvider = ({ children }) => {
 	const logout = () => {
 		if (window.confirm('Are you sure you want to log out')) {
 			setIsLoggedIn(false)
-			setSignedUp('false')
+			localStorage.removeItem('isLoggedIn')
 		}
 	}
 
@@ -132,7 +146,6 @@ export const ContextProvider = ({ children }) => {
 			product.title.toLowerCase().includes(searchTerm.toLowerCase())
 		)
 		if (filteredProducts.length === 0) {
-			alert('No products found')
 			fetchProducts()
 		}
 		setProducts(filteredProducts)
