@@ -10,7 +10,7 @@ import BackBtn from './BackBtn'
 import ProductContext from '../context/Context'
 
 function Signup() {
-	const { signup,signedUp,setSignedUp} = useContext(ProductContext)
+	const { signup,signedUp} = useContext(ProductContext)
 	const [showPassword, setShowPassword] = useState(false)
 	const [showPasswordErr, setShowPasswordErr] = useState(false)
 	
