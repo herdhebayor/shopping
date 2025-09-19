@@ -328,10 +328,10 @@ button:disabled:hover{
   height: fit-content;
   font-size: 1.5rem;
 }
-.notification:success{
+.notification[type="success"]{
   background-color: var(--mint-green);
 }
-.notification:warning{
+.notification[type='warning']{
   background-color: var(--hover);
 }
 
