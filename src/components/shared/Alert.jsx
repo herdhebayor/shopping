@@ -1,5 +1,5 @@
 
-import ProductContext from './context/Context'
+import ProductContext from '../context/Context'
 import React,{ useContext } from 'react'
 
 function Alert() {
