@@ -176,7 +176,6 @@ ul{
   color: var(--charcoal-gray);
 }
 .product{
-  display: flex;
   gap: 20px;
   width: 100%;
 }
