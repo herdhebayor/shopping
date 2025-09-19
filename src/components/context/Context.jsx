@@ -2,6 +2,7 @@
 
 import React from 'react'
 import { createContext, useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 
 
 const ProductContext = createContext()
@@ -10,11 +11,13 @@ export const ContextProvider = ({ children }) => {
 	const [products, setProducts] = useState([])
 	const [isLoading, setIsLoading] = useState(true)
 	const [cart, setCart] = useState([])
-	const [cartIsAdded, setCartIsAdded] = useState(false)
+	const [alert, setAlert] = useState(false)
+	const [alertMsg,setAlertMsg] = useState('')
 	const [isLoggedIn, setIsLoggedIn] = useState(false)
 	const [user, setUser] = useState(null)
-	const [signedUp, setSignedUp] = useState(false)
 	const [checkedOut, setCheckedOut] = useState(false)
+
+	const navigate = useNavigate()
 
 
 	useEffect(() => {
@@ -48,10 +51,12 @@ export const ContextProvider = ({ children }) => {
 		setUser(userData) // Save to state
 		localStorage.setItem('user', JSON.stringify(userData))
 		localStorage.setItem('isLoggedIn', 'true')
-		setSignedUp(true)
+		setAlert(true)
+		setAlertMsg('Signup successful! You are now logged in.')
 		setIsLoggedIn(true)
 		setTimeout(() => {
-			setSignedUp(false)
+			setAlert(false)
+			setAlertMsg('')
 		}, 2000)
 	}
 
@@ -87,9 +92,11 @@ export const ContextProvider = ({ children }) => {
 		}
 		// Initialize quantity to 1 when adding product to cart
 		setCart((prevCart) => [...prevCart, { ...product, quantity: 1 }])
-		setCartIsAdded(true)
+		setAlert(true)
+		setAlertMsg('Item added to cart')
 		setTimeout(() => {
-			setCartIsAdded(false)
+			setAlert(false)
+			setAlertMsg('')
 		}, 2000)
 	}
 	const deleteFromCart = (item) => {
@@ -118,14 +125,24 @@ export const ContextProvider = ({ children }) => {
 	}
 	const showCheckout = () => {
 		if (!isLoggedIn) {
-			alert('Please log in to proceed with checkout.')
-			window.location.href = '/log-in' // Redirect to login page
+			setAlert(true)
+			setAlertMsg('Please log in to proceed to checkout')
+			navigate('/log-in')
+			setTimeout(() => {
+				setAlert(false)
+				setAlertMsg('')
+			}, 2000) 
 			return
 		}
 		setCheckedOut(true)
 	}
 	const checkout = () => {
-		alert('Checkout successful!')
+		setAlert(true)
+		setAlertMsg('Checkout successful! Thank you for your purchase.')
+		setTimeout(() => {
+			setAlert(false)
+			setAlertMsg('')
+		}, 2000) 
 		clearCart()
 		setCheckedOut(false)
 	}
@@ -162,7 +179,12 @@ export const ContextProvider = ({ children }) => {
 	}
 
 	const subscribeToNewsletter = () => {
-		alert(`Thank you for subscribing to our newsletter!`)
+		setAlert(true)
+		setAlertMsg('Thank you for subscribing to our newsletter!')
+		setTimeout(() => {
+			setAlert(false)
+			setAlertMsg('')
+		}, 2000) 
 	}
 	return (
 		<ProductContext.Provider
@@ -177,14 +199,13 @@ export const ContextProvider = ({ children }) => {
 				cartTotalPrice,
 				increaseQuantity,
 				decreaseQuantity,
-				cartIsAdded,
+				alert,
+				alertMsg,
 				signup,
 				user,
 				login,
 				isLoggedIn,
 				setIsLoggedIn,
-				signedUp,
-				setSignedUp,
 				logout,
 				deleteFromCart,
 				checkedOut,

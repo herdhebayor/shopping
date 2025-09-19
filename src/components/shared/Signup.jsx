@@ -8,9 +8,10 @@ import { useNavigate } from 'react-router-dom'
 import { FaRegEyeSlash, FaRegEye } from 'react-icons/fa'
 import BackBtn from './BackBtn'
 import ProductContext from '../context/Context'
+import Alert from './Alert'
 
 function Signup() {
-	const { signup,signedUp} = useContext(ProductContext)
+	const { signup,alert} = useContext(ProductContext)
 	const [showPassword, setShowPassword] = useState(false)
 	const [showPasswordErr, setShowPasswordErr] = useState(false)
 	
@@ -158,8 +159,8 @@ function Signup() {
 				</form>
 			</div>
 			<BackBtn />
-			{signedUp && (
-				<div className='notification'>Product added to cart successfully!</div>
+			{alert && (
+				<Alert type="success" />
 			)}
 		</div>
 	)

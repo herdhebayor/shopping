@@ -4,10 +4,18 @@ import React from 'react'
 import { useContext } from 'react'
 import ProductContext from './context/Context'
 import { IoCloseSharp } from 'react-icons/io5'
+import Alert from './shared/Alert'
 
 function CartCheckout() {
-	const { cart, cartTotalPrice, checkout, setCheckedOut, deleteFromCart } =
-		useContext(ProductContext)
+	const {
+		cart,
+		cartTotalPrice,
+		checkout,
+		setCheckedOut,
+		deleteFromCart,
+		alert,
+		alertMsg,
+	} = useContext(ProductContext)
 	return (
 		<div className='wrapper'>
 			{cart.length > 0 ? (
@@ -44,6 +52,10 @@ function CartCheckout() {
 			<button className='close-btn' onClick={() => setCheckedOut(false)}>
 				<IoCloseSharp color='#fff' size='30' />
 			</button>
+			{alert && <Alert type='warning' />}
+			{alertMsg === 'Checkout successful! Thank you for your purchase.' && (
+				<Alert type='success' />
+			)}
 		</div>
 	)
 }

@@ -321,13 +321,18 @@ button:disabled:hover{
   position: fixed;
   top: 0;
   left: 0px;
-  background-color: var(--mint-green);
   color: var(--white);
   padding: 10px 20px;
   z-index: 1000;
   width: 100%;
-  height: 70px;
+  height: fit-content;
   font-size: 1.5rem;
+}
+.notification:success{
+  background-color: var(--mint-green);
+}
+.notification:warning{
+  background-color: var(--hover);
 }
 
 
@@ -515,6 +520,10 @@ button:disabled:hover{
     position:inherit;
     width: 100%;
     margin-top: 20px;
+  }
+  .notification{
+    font-size: 1rem;
+    padding: 10px;
   }
   .cart-tittle,
  .cart-item-price{

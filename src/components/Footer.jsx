@@ -12,9 +12,10 @@ import {
 	FaTiktok,
 } from 'react-icons/fa'
 import { FaSquareXTwitter } from 'react-icons/fa6'
+import Alert from './shared/Alert'
 
 function Footer() {
-	const { subscribeToNewsletter } = useContext(ProductContext)
+	const { subscribeToNewsletter ,alert} = useContext(ProductContext)
 	return (
 		<div className='footer'>
 			<div>
@@ -168,6 +169,7 @@ function Footer() {
 					</Link>
 				</div>
 			</div>
+			{alert && <Alert type="success" />}
 		</div>
 	)
 }

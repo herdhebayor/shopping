@@ -6,9 +6,10 @@ import { useParams } from 'react-router-dom'
 import ProductContext from './context/Context'
 import DeliveryInfo from './shared/DeliveryInfo'
 import BackBtn from './shared/BackBtn'
+import Alert from './shared/Alert'
 
 function ProductDetails() {
-	const { addToCart, products,cartIsAdded } = useContext(ProductContext)
+	const { addToCart, products,alert } = useContext(ProductContext)
 	const { id } = useParams()
 	const product = products.find((p) => p.id.toString() === id)
 
@@ -111,10 +112,8 @@ function ProductDetails() {
 				</div>
 				<DeliveryInfo />
 				<BackBtn />
-				{cartIsAdded && (
-					<div className='notification'>
-						Product added to cart successfully!
-					</div>
+				{alert && (
+					<Alert type='success'/>
 				)}
 			</div>
 		</div>
