@@ -3,7 +3,7 @@
 import React from 'react'
 import Logo from '../assets/logo-2.png'
 import { Link } from 'react-router-dom'
-import { useContext } from 'react'
+import { useContext, useState } from 'react'
 import ProductContext from './context/Context'
 import {
 	FaFacebookSquare,
@@ -16,11 +16,17 @@ import Alert from './shared/Alert'
 
 function Footer() {
 	const { subscribeToNewsletter ,alert} = useContext(ProductContext)
+	const submitNewsletter = (e) => {
+		e.preventDefault()
+		e.target.email.value = ''
+		e.target.checkbox.checked = false
+		subscribeToNewsletter()
+	}
 	return (
 		<div className='footer'>
 			<div>
 				<img src={Logo} alt='logo' style={{ width: '80px', height: '80px' }} />
-				<form style={{ width: '350px' }} onSubmit={subscribeToNewsletter}>
+				<form style={{ width: '350px' }} onSubmit={submitNewsletter}>
 					<h4 style={{ marginBottom: '20px' }}>
 						Subscribe to our news letter to receive update on our new products
 					</h4>
@@ -30,6 +36,7 @@ function Footer() {
 						</label>
 						<input
 							type='email'
+							name='email'
 							className='newsletter-email'
 							placeholder='Enter your email'
 							required
@@ -43,17 +50,26 @@ function Footer() {
 							alignItems: 'center',
 						}}
 					>
-						<input type='checkbox' className='check' required />
+						<input type='checkbox' name='checkbox' className='check' required />
 						<label htmlFor='check'>
 							By clicking you agree to our terms and condition
 						</label>
 					</div>
-					<button type='submit' className='submit-btn'>
+					<button
+						type='submit'
+						className='submit-btn'
+					>
 						Submit
 					</button>
 				</form>
 			</div>
-			<div style={{'display':'flex',justifyContent:'space-between', 'gap':'50px'}}>
+			<div
+				style={{
+					display: 'flex',
+					justifyContent: 'space-between',
+					gap: '50px',
+				}}
+			>
 				<div className='footer-links'>
 					<ul>
 						<li>
@@ -169,7 +185,7 @@ function Footer() {
 					</Link>
 				</div>
 			</div>
-			{alert && <Alert type="success" />}
+			{alert && <Alert type='success' />}
 		</div>
 	)
 }

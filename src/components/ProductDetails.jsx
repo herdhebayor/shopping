@@ -19,10 +19,10 @@ function ProductDetails() {
 
 	return (
 		<div className='detail-container'>
-			<div>
+			<div className='detail'>
 				<div className='product-details'>
 					<div className='product'>
-						<div style={{ width: '300px', height: '300px', textAlign:'center' }}>
+						<div style={{ 'minWidth' : '300px', height: '300px', textAlign:'center' }}>
 							<img
 								src={product.images[0]}
 								alt={product.title}
@@ -104,7 +104,7 @@ function ProductDetails() {
 									<p>
 										<strong>{review.rating}</strong> stars rating
 									</p>
-									<p style={{ fontStyle: 'italic' }}>{review.reviewerEmail}</p>
+									<p style={{ fontStyle: 'italic', fontSize:'.8rem' }}>{review.reviewerEmail}</p>
 								</div>
 							))}
 						</div>

@@ -41,11 +41,21 @@ ul{
 .cart-inner-empty,
 .empty,
 .notification,
-.product-reviews {
+.product-reviews,
+.user-name {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+}
+.product-reviews{
+  width: 100%;
+  background-color: #fbf9f9;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 20px;
+  justify-content: space-between;
+  gap: 20px;
 }
 .navbar{
   position: fixed;
@@ -76,7 +86,8 @@ ul{
   height: 50px;
   padding: 3px;
 }
-.nav-input-group input{
+.nav-input-group input,
+.nav-input-group input:focus{
   border: none;
   outline: none;
   padding: 0 10px;
@@ -130,7 +141,6 @@ ul{
   color: var(--white);
   text-transform: uppercase;
   font-weight: 700;
-  text-align: center;
   font-size: 1.5rem;
 }
 .user .btn{
@@ -175,10 +185,9 @@ ul{
   min-height: 400px;
   color: var(--charcoal-gray);
 }
-.product{
-  gap: 20px;
-  width: 100%;
-}
+/* .product{
+  
+} */
 .cart-inner,
 .cart-inner-empty,
 .product-details{
@@ -263,14 +272,15 @@ ul{
   justify-content: center;
   gap: 10px;
 }
-
-
-.detail-container div:first-child{
-    display: flex;
-    gap: 20px;
-  }
+.product-details .product{
+  display: flex;
+}
 .product-details{
   padding: 30px;
+}
+.detail{
+  display: flex;
+  gap: 20px;
 }
 .productImage{
   width: 100%;
@@ -327,15 +337,8 @@ button:disabled:hover{
   width: 100%;
   height: fit-content;
   font-size: 1.5rem;
+  transition: all 0.8s ease-in-out;
 }
-.notification[type="success"]{
-  background-color: var(--mint-green);
-}
-.notification[type='warning']{
-  background-color: var(--hover);
-}
-
-
 .footer{
   background-color: var(--cool-navy);
   padding:50px 30px;
@@ -436,8 +439,13 @@ button:disabled:hover{
   color: var(--white);
   border-radius: 5px;
 }
-.checkout:over{
+.checkout:hover{
   background-color: var(--hover);
+}
+.checkout:disabled{
+  background-color: #cccccc;
+  color: #333;
+  cursor: not-allowed;
 }
 
 .wrapper{
@@ -553,18 +561,22 @@ button:disabled:hover{
 .nav-input-group button{
   display: none;
 }
-.nav-input-group input{
+.nav-input-group input,
+.nav-input-group input:focus{
   font-size: .8rem;
   padding: 0 5px;
 }
 .user-name{
   width: 30px;
   height: 30px;
-
+  font-size: 1rem;
 }
 .user .btn{
   padding: 3px 5px;
   font-size: .8rem;
+}
+.btn.btn.signup{
+  font-size: .7rem;
 }
 .App-logo{
   width: 50px;

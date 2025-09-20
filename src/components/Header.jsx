@@ -37,7 +37,7 @@ function Header() {
 						className='user'
 						style={{ display: 'flex', alignItems: 'center', gap: '5px' }}
 					>
-						{isLoggedIn ? (
+						{isLoggedIn && user ? (
 							<div style={{display:'flex',gap:'10px',alignItems:'center'}}>
 							<div className='user-name' >{user.username[0]}</div>
 							<button className='btn logout' onClick={logout}>Log out</button>

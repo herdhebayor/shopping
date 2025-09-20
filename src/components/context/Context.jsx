@@ -125,17 +125,19 @@ export const ContextProvider = ({ children }) => {
 	}
 	const showCheckout = () => {
 		if (!isLoggedIn) {
+			navigate('/log-in')
 			setAlert(true)
 			setAlertMsg('Please log in to proceed to checkout')
 			setTimeout(() => {
 				setAlert(false)
-				setAlertMsg('')
-				navigate('/log-in')
+				setAlertMsg('')	
 			}, 2000) 
-			return
+			
+			return;
 		}
 		setCheckedOut(true)
 	}
+
 	const checkout = () => {
 		setAlert(true)
 		setAlertMsg('Checkout successful! Thank you for your purchase.')
@@ -179,8 +181,10 @@ export const ContextProvider = ({ children }) => {
 	}
 
 	const subscribeToNewsletter = () => {
-		setAlert(true)
+		
 		setAlertMsg('Thank you for subscribing to our newsletter!')
+		setAlert(true)
+		console.log(alertMsg)
 		setTimeout(() => {
 			setAlert(false)
 			setAlertMsg('')

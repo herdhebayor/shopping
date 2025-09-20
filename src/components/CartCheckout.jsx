@@ -16,9 +16,10 @@ function CartCheckout() {
 		alert,
 		alertMsg,
 	} = useContext(ProductContext)
+
 	return (
 		<div className='wrapper'>
-			{cart.length > 0 ? (
+			{cart && cart.length > 0 ? (
 				<div className='checkout'>
 					<h2>Checkout</h2>
 					<ul>
