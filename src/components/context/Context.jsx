@@ -127,10 +127,10 @@ export const ContextProvider = ({ children }) => {
 		if (!isLoggedIn) {
 			setAlert(true)
 			setAlertMsg('Please log in to proceed to checkout')
-			navigate('/log-in')
 			setTimeout(() => {
 				setAlert(false)
 				setAlertMsg('')
+				navigate('/log-in')
 			}, 2000) 
 			return
 		}

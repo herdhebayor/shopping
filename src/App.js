@@ -16,8 +16,8 @@ import ScrollToTop from './components/shared/ScrollTop'
 
 function App() {
 	return (
-		<ContextProvider>
-			<Router>
+		<Router>
+			<ContextProvider>
 				<ScrollToTop />
 				{/* ScrollToTop component to reset scroll position on route change */}
 				{/* This component will scroll to the top of the page whenever the route changes */}
@@ -32,12 +32,12 @@ function App() {
 							<Route path='/cart' element={<Cart />} />
 							<Route path='/log-in' element={<LogIn />} />
 							<Route path='/sign-up' element={<Signup />} />
-						</Routes> 
+						</Routes>
 					</div>
 					<Footer />
 				</div>
-			</Router>
-		</ContextProvider>
+			</ContextProvider>
+		</Router>
 	)
 }
 
