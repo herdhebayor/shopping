@@ -501,14 +501,15 @@ button:disabled:hover{
   }
   .container{
     padding: 0;
-    margin-top:4.5rem ;
+    margin-top:4rem ;
   }
   .productImage{
-    height: 100px;
+    height: 80px;
   }
   .products{
-    line-height: 1.5;
-    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+    gap: 10px;
+    font-size: .7rem;
   }
   .detail-container{
     display: block;
